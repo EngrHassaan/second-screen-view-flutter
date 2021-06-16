@@ -26,7 +26,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         color: Colors.grey,
         fontSize: 14,
       ),
-      maxLines: 3,
       overflow: TextOverflow.ellipsis,
     );
   }
@@ -49,37 +48,38 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: [
             Container(
               padding: EdgeInsets.only(top: 30.0),
-              child: FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () => print("Upload the Image"),
-                      child: CircleAvatar(
-                        radius: 30,
-                        backgroundColor: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: CircleAvatar(
+                      radius: 32,
+                      backgroundColor: Colors.white,
+                      child: InkWell(
+                        onTap: () => print("Upload the Image"),
                         child: CircleAvatar(
                           backgroundImage: AssetImage('images/passportpic.png'),
-                          radius: 28.0,
+                          radius: 30.0,
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 25),
-                      child: Text(
-                        "WELCOME HASSAAN,",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w900,
-                            letterSpacing: 0.5,
-                            color: Colors.grey[600]),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      "WELCOME HASSAAN,",
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: 0.5,
+                          color: Colors.grey[600]),
+                    ),
+                  )
+                ],
               ),
+              margin: EdgeInsets.only(bottom: 30),
             ),
-            SizedBox(height: 30.0),
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -98,6 +98,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: cardText("MY WARDROBE'S IMPACT", Colors.black),
@@ -112,7 +113,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       height: 20.0,
                     ),
                     Row(
-                      
                       children: [
                         Expanded(
                           child: Column(
@@ -147,7 +147,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ],
                           ),
                         ),
-                        Expanded(child:addIcon(Icons.add)),
+                        Expanded(child: addIcon(Icons.add),
+                        ),
                         Expanded(
                           child: Column(
                             children: [
@@ -213,8 +214,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               flex: 5,
                               child: cardText("PLANTED:", Colors.grey)),
                           Expanded(
-                              flex: 5,
-                              child: cardText("1 TREE", Colors.black)),
+                              flex: 5, child: cardText("1 TREE", Colors.black)),
                           Expanded(
                             child: Icon(
                               Icons.park,
